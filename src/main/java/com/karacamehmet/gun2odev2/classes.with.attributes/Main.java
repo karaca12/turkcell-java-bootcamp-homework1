@@ -1,4 +1,4 @@
-package com.karacamehmet.classes.with.attributes;
+package com.karacamehmet.gun2odev2.classes.with.attributes;
 
 public class Main {
     public static void main(String[] args) {

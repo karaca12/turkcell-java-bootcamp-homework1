@@ -1,4 +1,4 @@
-package com.karacamehmet.classes;
+package com.karacamehmet.gun2odev2.classes;
 
 public class CustomerManager {
     public void add(){

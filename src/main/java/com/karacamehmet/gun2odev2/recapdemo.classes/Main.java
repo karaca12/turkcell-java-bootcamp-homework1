@@ -1,4 +1,4 @@
-package com.karacamehmet.recapdemo.classes;
+package com.karacamehmet.gun2odev2.recapdemo.classes;
 
 public class Main {
     public static void main(String[] args) {

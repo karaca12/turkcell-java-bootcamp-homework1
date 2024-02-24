@@ -1,4 +1,4 @@
-package com.karacamehmet.recapdemo.classes;
+package com.karacamehmet.gun2odev2.recapdemo.classes;
 
 public class Calculator {
     public int add(int num1,int num2){

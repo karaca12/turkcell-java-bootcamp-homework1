@@ -1,4 +1,4 @@
-package com.karacamehmet.methods;
+package com.karacamehmet.gun2odev2.methods;
 
 
 public class Main {

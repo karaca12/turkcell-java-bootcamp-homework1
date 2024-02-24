@@ -1,4 +1,4 @@
-package com.karacamehmet.sayi.bulma;
+package com.karacamehmet.gun2odev2.sayi.bulma;
 
 
 public class Main {
