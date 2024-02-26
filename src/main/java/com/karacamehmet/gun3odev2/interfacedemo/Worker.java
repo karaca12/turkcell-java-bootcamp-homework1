@@ -1,6 +1,6 @@
 package com.karacamehmet.gun3odev2.interfacedemo;
 
-public class Worker implements WorkableImpl,EatableImpl, PayableImpl {
+public class Worker implements Workable, Eatable, Payable {
     @Override
     public void work() {
 

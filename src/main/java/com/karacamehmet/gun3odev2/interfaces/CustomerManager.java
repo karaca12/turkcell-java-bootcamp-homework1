@@ -1,9 +1,9 @@
 package com.karacamehmet.gun3odev2.interfaces;
 
 public class CustomerManager {
-    private final CustomerDalImpl customerDal;
+    private final CustomerDal customerDal;
 
-    public CustomerManager(CustomerDalImpl customerDal) {
+    public CustomerManager(CustomerDal customerDal) {
         this.customerDal = customerDal;
     }
 

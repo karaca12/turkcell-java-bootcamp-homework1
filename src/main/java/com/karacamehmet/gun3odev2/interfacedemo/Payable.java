@@ -1,5 +1,5 @@
 package com.karacamehmet.gun3odev2.interfacedemo;
 
-public interface PayableImpl {
+public interface Payable {
     void pay();
 }
