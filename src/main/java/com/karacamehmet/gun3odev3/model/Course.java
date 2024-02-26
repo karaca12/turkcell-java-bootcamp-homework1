@@ -10,7 +10,7 @@ public class Course {
     public Course(int courseId, String courseName, double coursePrice, int categoryId, int instructorId) {
         if (coursePrice < 0) {
             System.out.println("Course price cannot be less than 0.");
-            throw new IllegalArgumentException("categoryId 0'dan küçük olamaz.");
+            throw new IllegalArgumentException("Course price cannot be less than 0.");
         } else {
             this.courseId = courseId;
             this.courseName = courseName;
@@ -43,7 +43,7 @@ public class Course {
     public void setCoursePrice(double coursePrice) {
         if (coursePrice < 0) {
             System.out.println("Course price cannot be less than 0.");
-            throw new IllegalArgumentException("categoryId 0'dan küçük olamaz.");
+            throw new IllegalArgumentException("Course price cannot be less than 0.");
         } else {
             this.coursePrice = coursePrice;
         }
