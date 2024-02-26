@@ -1,20 +1,21 @@
-package com.karacamehmet.gun3odev3.service;
+package com.karacamehmet.gun3odev3.service.impl;
 
-import com.karacamehmet.gun3odev3.logging.Logger;
+import com.karacamehmet.gun3odev3.logging.interf.Logger;
 import com.karacamehmet.gun3odev3.model.Course;
 import com.karacamehmet.gun3odev3.repository.dao.CourseDao;
+import com.karacamehmet.gun3odev3.service.interf.CourseService;
 
 import java.util.List;
 
-public class CourseService {
+public class CourseServiceImpl implements CourseService {
     CourseDao courseDao;
     Logger logger;
 
-    public CourseService(CourseDao courseDao, Logger logger) {
+    public CourseServiceImpl(CourseDao courseDao, Logger logger) {
         this.courseDao = courseDao;
         this.logger = logger;
     }
-
+    @Override
     public Course getCourseById(int courseId) throws Exception {
         try {
             Course course = courseDao.getCourseById(courseId);
@@ -26,7 +27,7 @@ public class CourseService {
             throw new Exception("Couldn't bring the course.");
         }
     }
-
+    @Override
     public List<Course> getAllCourses() throws Exception {
         try {
             List<Course> courses = courseDao.getAllCourses();
@@ -38,7 +39,7 @@ public class CourseService {
             throw new Exception("Couldn't bring the courses.");
         }
     }
-
+    @Override
     public void createCourse(Course course) throws Exception {
         //if the database contains the course or there is a course named as ours, we will not add the new course to our database
         //if the price of the course is lower than 0, we will not add the new course to our database
@@ -57,7 +58,7 @@ public class CourseService {
             }
         }
     }
-
+    @Override
     public void updateCourseById(int courseId, Course course) throws Exception {
         //if the database contains the course with the courseId and the new course is not contained in the database or there isn't a course named as it,
         //if the price of the course is not lower than 0
@@ -78,7 +79,7 @@ public class CourseService {
             logger.log("Couldn't add the course because this course already exists.");
         }
     }
-
+    @Override
     public void deleteCourseById(int courseId) throws Exception {
         try {
             courseDao.deleteCourseById(courseId);

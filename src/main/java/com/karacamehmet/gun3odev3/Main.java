@@ -1,9 +1,9 @@
 package com.karacamehmet.gun3odev3;
 
-import com.karacamehmet.gun3odev3.logging.DatabaseLogger;
-import com.karacamehmet.gun3odev3.logging.EmailLogger;
-import com.karacamehmet.gun3odev3.logging.FileLogger;
-import com.karacamehmet.gun3odev3.logging.Logger;
+import com.karacamehmet.gun3odev3.logging.impl.DatabaseLogger;
+import com.karacamehmet.gun3odev3.logging.impl.EmailLogger;
+import com.karacamehmet.gun3odev3.logging.impl.FileLogger;
+import com.karacamehmet.gun3odev3.logging.interf.Logger;
 import com.karacamehmet.gun3odev3.model.Category;
 import com.karacamehmet.gun3odev3.model.Course;
 import com.karacamehmet.gun3odev3.model.Instructor;
@@ -16,9 +16,9 @@ import com.karacamehmet.gun3odev3.repository.hibernate.InstructorDaoHibernateImp
 import com.karacamehmet.gun3odev3.repository.jdbc.CategoryDaoJdbcImpl;
 import com.karacamehmet.gun3odev3.repository.jdbc.CourseDaoJdbcImpl;
 import com.karacamehmet.gun3odev3.repository.jdbc.InstructorDaoJdbcImpl;
-import com.karacamehmet.gun3odev3.service.CategoryService;
-import com.karacamehmet.gun3odev3.service.CourseService;
-import com.karacamehmet.gun3odev3.service.InstructorService;
+import com.karacamehmet.gun3odev3.service.impl.CategoryServiceImpl;
+import com.karacamehmet.gun3odev3.service.impl.CourseServiceImpl;
+import com.karacamehmet.gun3odev3.service.impl.InstructorServiceImpl;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -54,14 +54,14 @@ public class Main {
 
         //Services
         //Category
-        CategoryService categoryServiceHibernate = new CategoryService(categoryDaoHibernate, fileLogger);
-        CategoryService categoryServiceJdbc = new CategoryService(categoryDaoJdbc, emailLogger);
+        CategoryServiceImpl categoryServiceHibernate = new CategoryServiceImpl(categoryDaoHibernate, fileLogger);
+        CategoryServiceImpl categoryServiceJdbc = new CategoryServiceImpl(categoryDaoJdbc, emailLogger);
         //Instructor
-        InstructorService instructorServiceHibernate = new InstructorService(instructorDaoHibernate, databaseLogger);
-        InstructorService instructorServiceJdbc = new InstructorService(instructorDaoJdbc, emailLogger);
+        InstructorServiceImpl instructorServiceHibernate = new InstructorServiceImpl(instructorDaoHibernate, databaseLogger);
+        InstructorServiceImpl instructorServiceJdbc = new InstructorServiceImpl(instructorDaoJdbc, emailLogger);
         //Course
-        CourseService courseServiceHibernate = new CourseService(courseDaoHibernate, fileLogger);
-        CourseService courseServiceJdbc = new CourseService(courseDaoJdbc, databaseLogger);
+        CourseServiceImpl courseServiceHibernate = new CourseServiceImpl(courseDaoHibernate, fileLogger);
+        CourseServiceImpl courseServiceJdbc = new CourseServiceImpl(courseDaoJdbc, databaseLogger);
 
 
         //Using the services

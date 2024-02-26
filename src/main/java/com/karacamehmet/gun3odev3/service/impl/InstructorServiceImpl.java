@@ -1,21 +1,22 @@
-package com.karacamehmet.gun3odev3.service;
+package com.karacamehmet.gun3odev3.service.impl;
 
-import com.karacamehmet.gun3odev3.logging.Logger;
-import com.karacamehmet.gun3odev3.model.Course;
+import com.karacamehmet.gun3odev3.logging.interf.Logger;
 import com.karacamehmet.gun3odev3.model.Instructor;
 import com.karacamehmet.gun3odev3.repository.dao.InstructorDao;
+import com.karacamehmet.gun3odev3.service.interf.InstructorService;
 
 import java.util.List;
 
-public class InstructorService {
+public class InstructorServiceImpl implements InstructorService {
     InstructorDao instructorDao;
     Logger logger;
 
-    public InstructorService(InstructorDao instructorDao, Logger logger) {
+    public InstructorServiceImpl(InstructorDao instructorDao, Logger logger) {
         this.instructorDao = instructorDao;
         this.logger = logger;
     }
 
+    @Override
     public Instructor getInstructorById(int instructorId) throws Exception {
         try {
             Instructor instructor = instructorDao.getInstructorById(instructorId);
@@ -27,7 +28,7 @@ public class InstructorService {
             throw new Exception("Couldn't bring the instructor.");
         }
     }
-
+    @Override
     public List<Instructor> getAllInstructors() throws Exception {
         try {
             List<Instructor> instructors = instructorDao.getAllInstructors();
@@ -39,7 +40,7 @@ public class InstructorService {
             throw new Exception("Couldn't bring the instructors.");
         }
     }
-
+    @Override
     public void createInstructor(Instructor instructor) throws Exception {
         //if the database contains the instructor or there is a instructor named as ours, we will not add the new instructor to our database
         if (instructorDao.getAllInstructors().contains(instructor) || instructorDao.getInstructorById(instructor.getInstructorId()).equals(instructor)) {
@@ -56,7 +57,7 @@ public class InstructorService {
             }
         }
     }
-
+    @Override
     public void updateInstructorById(int instructorId, Instructor instructor) throws Exception {
         //if the database contains the instructor with the instructorId and the new instructor is not contained in the database or there isn't an instructor named as it,
         // we will update the instructor
@@ -76,7 +77,7 @@ public class InstructorService {
             logger.log("Couldn't add the instructor because this instructor already exists.");
         }
     }
-
+    @Override
     public void deleteInstructorById(int instructorId) throws Exception {
         try {
             instructorDao.deleteInstructorById(instructorId);

@@ -1,21 +1,22 @@
-package com.karacamehmet.gun3odev3.service;
+package com.karacamehmet.gun3odev3.service.impl;
 
-import com.karacamehmet.gun3odev3.logging.Logger;
+import com.karacamehmet.gun3odev3.logging.interf.Logger;
 import com.karacamehmet.gun3odev3.model.Category;
 import com.karacamehmet.gun3odev3.repository.dao.CategoryDao;
+import com.karacamehmet.gun3odev3.service.interf.CategoryService;
 
 import java.util.List;
 
-public class CategoryService {
+public class CategoryServiceImpl implements CategoryService {
     CategoryDao categoryDao;
     Logger logger;
 
 
-    public CategoryService(CategoryDao categoryDao, Logger logger) {
+    public CategoryServiceImpl(CategoryDao categoryDao, Logger logger) {
         this.categoryDao = categoryDao;
         this.logger = logger;
     }
-
+    @Override
     public Category getCategoryById(int categoryId) throws Exception {
         try {
             Category category = categoryDao.getCategoryById(categoryId);
@@ -27,7 +28,7 @@ public class CategoryService {
             throw new Exception("Couldn't bring the category.");
         }
     }
-
+    @Override
     public List<Category> getAllCategories() throws Exception {
         try {
             List<Category> categories = categoryDao.getAllCategories();
@@ -40,7 +41,7 @@ public class CategoryService {
         }
     }
 
-
+    @Override
     public void createCategory(Category category) throws Exception {
         //if the database contains the category or there is a category names as ours we will not add the new category to our database
         if (categoryDao.getAllCategories().contains(category) || categoryDao.getCategoryById(category.getCategoryId()).equals(category)) {
@@ -59,7 +60,7 @@ public class CategoryService {
         }
     }
 
-
+    @Override
     public void updateCategoryById(int categoryId, Category category) throws Exception {
         //if the database contains the category with the categoryId and the new category is not contained in the database or there isn't a category named as it,
         // we will update the category
@@ -79,7 +80,7 @@ public class CategoryService {
             logger.log("Couldn't add the category because this category already exists.");
         }
     }
-
+    @Override
     public void deleteCategoryById(int categoryId) throws Exception {
         try {
             categoryDao.deleteCategoryById(categoryId);
